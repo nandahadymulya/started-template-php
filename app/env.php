@@ -8,9 +8,16 @@
   
   // Cek apakah berhasil koneksi ke database
   if (mysqli_connect_errno()) {
-    echo "Your Application has Failed to Connected to the Database" . mysqli_connect_error();
+    echo "
+        <div class='alert alert-danger'>
+          Your Application has Failed to Connected to the Database
+        </div>
+    " . mysqli_connect_error();
     exit();
   } else {
-      echo "Your Application has Successfully Connected to the Database";
+      echo "
+        <div class='alert alert-success text-center'>
+          Your Application has <span class='fw-bold'>Successfully</span> Connected to the Database!
+        </div>
+      ";
   }
-?> 
