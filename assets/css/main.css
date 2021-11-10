@@ -85,3 +85,7 @@ section {
   padding-top: 90px;
   padding-bottom: 90px;
 }
+
+.card {
+  border-radius: 18px;
+}
