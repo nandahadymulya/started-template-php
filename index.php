@@ -1,29 +1,52 @@
 <?php 
-    require 'app/env.php';
+    error_reporting(0);
+    session_start();
+
+    include "app/config.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <!-- Required meta tags -->
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Started Template PHP</title>
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <!-- CSS CDN Bootstrap 5.1.3 -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+        <!-- FAVICON -->
+        <link rel="icon" href="#">
 
-    <!-- CSS Local Bootstrap 5.1.3 -->
-    <link rel="stylesheet" href="public/template/css/bootstrap.min.css">
+        <!-- Bootstrap 5.1.3 CSS -->
+        <link rel="stylesheet" href="assets/bootstrap.min.css">
 
-    <!-- JS Local Bootstrap 5.1.3 -->
-    <link rel="stylesheet" href="public/template/js/bootstrap.min.js">
+        <!-- CDN Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
 
-    <!-- JS CDN Bootstrap 5.1.3 -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+        <!-- Main CSS -->
+        <link rel="stylesheet" href="assets/css/main.css" />
 
-</head>
-<body>
+        <title>Started Template PHP by Nans</title>
+    </head>
+
+    <body>
+        <!-- NAVBAR -->
+        <?php include 'view/navbar.php'; ?>
+        <!-- END NAVBAR -->
     
-</body>
+        <!-- CONTENT -->
+        <?php include 'view/home.php'; ?>
+        <?php include 'view/section.php'; ?>
+        <!-- END CONTENT -->
+
+        <!-- FOOTER -->
+       <?php include 'view/footer.php' ?>
+        <!-- END FOOTER -->
+
+
+        <!-- Bootstrap 5.1.3 JS -->
+        <link rel="stylesheet" href="assets/bootstrap.min.js">
+        <link rel="stylesheet" href="assets/bootstrap.bundle.min.js">
+
+        <!-- Option 1: Bootstrap Bundle with Popper -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+    </body>
 </html>
