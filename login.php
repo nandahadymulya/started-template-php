@@ -1,6 +1,31 @@
 <?php
-
+session_start();
 require 'app/config.php';
+require 'app/function.php';
+
+if (isset($_POST['login'])) {
+    $name = $_POST['name'];
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+    $role = $_POST['role'];
+
+    $sql = "SELECT * FROM users WHERE username='$username' AND password='$password'";
+    $result = mysqli_query($conn, $sql);
+
+    if ($result->num_rows > 0) {
+        $row = mysqli_fetch_assoc($result);
+        $_SESSION['username'] = $row['username'];
+        $_SESSION['name'] = $row['name'];
+        $_SESSION['role'] = $row['role'];
+        header("Location: view/dashboard/dashboard.php");
+    } else {
+        echo "
+            <script>
+                alert('Whoops! Username & Password is Wrong!')
+            </script>
+        ";
+    }
+}
 
 ?>
 <!DOCTYPE html>
@@ -35,16 +60,16 @@ require 'app/config.php';
                         Let's Begin!
                     </h2>
                     <div class="card p-4 p-md-3 p-lg-4 shadow-lg">
-                        <form>
+                        <form action="" method="POST">
                             <div class="mt-4 mb-3 mt-sm-4">
-                                <label for="exampleInputEmail1" class="form-label">Username / Email address</label>
-                                <input type="email" class="form-control  rounded-pill" id="exampleInputEmail1">
+                                <label for="username" class="form-label">Username / Email address</label>
+                                <input type="text" class="form-control  rounded-pill" id="username" name="username">
                             </div>
                             <div class="mb-3">
-                                <label for="exampleInputPassword1" class="form-label">Password</label>
-                                <input type="password" class="form-control rounded-pill" id="exampleInputPassword1">
+                                <label for="password" class="form-label">Password</label>
+                                <input type="password" class="form-control rounded-pill" id="password" name="password">
                             </div>
-                            <button type="submit" class="mb-4 mb-sm-4 btn btn-dark form-control form-control-lg border-0 rounded-pill">Login</button>
+                            <button type="submit" class="mb-4 mb-sm-4 btn btn-dark form-control form-control-lg border-0 rounded-pill" name="login">Login</button>
                         </form>
                     </div>
                     <div class="text-center mt-4">
