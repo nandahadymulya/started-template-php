@@ -4,7 +4,7 @@ require 'app/config.php';
 require 'app/function.php';
 
 if (isset($_POST['login'])) {
-    $name = $_POST['name'];
+    $fullname = $_POST['fullname'];
     $username = $_POST['username'];
     $password = $_POST['password'];
     $role = $_POST['role'];
@@ -14,8 +14,9 @@ if (isset($_POST['login'])) {
 
     if ($result->num_rows > 0) {
         $row = mysqli_fetch_assoc($result);
+        $_SESSION['fullname'] = $row['fullname'];
         $_SESSION['username'] = $row['username'];
-        $_SESSION['name'] = $row['name'];
+        $_SESSION['password'] = $row['password'];
         $_SESSION['role'] = $row['role'];
         header("Location: view/dashboard/dashboard.php");
     } else {
@@ -26,7 +27,6 @@ if (isset($_POST['login'])) {
         ";
     }
 }
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -62,7 +62,7 @@ if (isset($_POST['login'])) {
                     <div class="card p-4 p-md-3 p-lg-4 shadow-lg">
                         <form action="" method="POST">
                             <div class="mt-4 mb-3 mt-sm-4">
-                                <label for="username" class="form-label">Username / Email address</label>
+                                <label for="username" class="form-label">Username</label>
                                 <input type="text" class="form-control  rounded-pill" id="username" name="username">
                             </div>
                             <div class="mb-3">

@@ -2,7 +2,7 @@
 error_reporting(0);
 session_start();
 
-include "app/config.php";
+require "app/config.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -23,22 +23,23 @@ include "app/config.php";
 
     <!-- Main CSS -->
     <link rel="stylesheet" href="assets/css/main.css" />
-
-    <title>Started Template PHP by Nans</title>
+    <title>
+        <?= $title == ['Started Template PHP by Nans', $newtitle]; ?>
+    </title>
 </head>
 
 <body>
     <!-- NAVBAR -->
-    <?php include 'view/navbar.php'; ?>
+    <?php require 'view/navbar.php'; ?>
     <!-- END NAVBAR -->
 
     <!-- CONTENT -->
-    <?php include 'view/home.php'; ?>
-    <?php include 'view/section.php'; ?>
+    <?php require 'content.php'; ?>
+    <!-- <?php require 'view/section.php'; ?> -->
     <!-- END CONTENT -->
 
     <!-- FOOTER -->
-    <?php include 'view/footer.php' ?>
+    <?php require 'view/footer.php' ?>
     <!-- END FOOTER -->
 
 

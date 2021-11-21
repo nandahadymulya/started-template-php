@@ -1,3 +1,4 @@
+ <title>Started Template PHP by Nans</title>
  <main class="hero d-flex align-items-center">
      <div class="container">
          <div class="row">
