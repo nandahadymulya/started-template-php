@@ -24,7 +24,8 @@ require "app/config.php";
     <!-- Main CSS -->
     <link rel="stylesheet" href="assets/css/main.css" />
     <title>
-        <?= $title == ['Started Template PHP by Nans', $newtitle]; ?>
+        Started Template PHP by Nans
+        <!-- <?= $title == ['Started Template PHP by Nans', $newtitle]; ?> -->
     </title>
 </head>
 
