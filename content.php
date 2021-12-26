@@ -12,9 +12,9 @@ if ($view == '') {
     // View for Role: Admin
 } else if ($view == "dashboard") {
     $title == 'Dashboard';
-    include "view/dashboard/dashboard.php";
-    // } else if ($view == "penyakit") {
-    //   include "view/penyakit/penyakit.php";
+    require "view/dashboard/dashboard.php";
+} else if ($view == "profile") {
+    require "view/profile/profile.php";
     // } else if ($view == "gejala") {
     //   include "view/gejala/gejala.php";
     // } else if ($view == 'tambahgejala') {
