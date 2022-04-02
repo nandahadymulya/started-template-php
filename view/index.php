@@ -2,8 +2,9 @@
 error_reporting(0);
 session_start();
 
-require 'app/config.php';
-require 'app/function.php';
+require "app/config.php";
+
+$page = $_GET['page'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -28,9 +29,6 @@ require 'app/function.php';
     <!-- Dashboard CSS -->
     <link rel="stylesheet" href="assets/css/dashboard.css" />
 
-    <!-- Base -->
-    <base href="http://localhost:8888/started-template-php">
-
     <title>
         Started Template PHP by Nans
         <!-- <?= $title == ['Started Template PHP by Nans', $newtitle]; ?> -->
@@ -43,7 +41,8 @@ require 'app/function.php';
     <!-- END NAVBAR -->
 
     <!-- CONTENT -->
-    <?php require 'content.php'; ?>
+    <?php require 'view/routes.php'; ?>
+    <!-- <?php require 'view/section.php'; ?> -->
     <!-- END CONTENT -->
 
     <!-- FOOTER -->

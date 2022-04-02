@@ -1,33 +1,27 @@
 <?php
 // Handling Page Content
-$view = $_GET['page'];
-
+if (isset($_GET['page'])) {
+    $page = $_GET['page'];
+}
 // View without Login
-if ($view == '') {
+if ($page == '') {
     require 'view/home.php';
-} else if ($view == 'login') {
+} else if ($page == 'login') {
     $title = 'Login Page';
-    require 'login.php';
+    require 'view/login.php';
+} else if ($page == 'about') {
+    $title = 'About Page';
+    require 'view/about.php';
 
     // View for Role: Admin
-} else if ($view == "dashboard") {
+} else if ($page == "dashboard") {
     $title == 'Dashboard';
-    require "view/dashboard/dashboard.php";
-} else if ($view == "profile") {
+    require "view/dashboard.php";
+} else if ($page == "profile") {
     require "view/profile/profile.php";
-    // } else if ($view == "gejala") {
-    //   include "view/gejala/gejala.php";
-    // } else if ($view == 'tambahgejala') {
-    //   include "view/gejala/tambahgejala.php";
-    // } else if ($view == "pengetahuan") {
-    //   include "view/pengetahuan/pengetahuan.php";
-    // } else if ($view == "password") {
-    //   include "view/password/password.php";
-    // } else if ($view == "riwayat") {
-    //   include "view/riwayat/riwayat.php";
-    //   // Authentication
-} else if ($view == "logout") {
-    require "logout.php";
+    // Authentication
+} else if ($page == "logout") {
+    require "view/logout.php";
 } else {
     require 'view/blank.php';
 }
